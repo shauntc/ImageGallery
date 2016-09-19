@@ -13,6 +13,7 @@
 		2808245D1D908ADF00065E12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2808245B1D908ADF00065E12 /* Main.storyboard */; };
 		2808245F1D908ADF00065E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2808245E1D908ADF00065E12 /* Assets.xcassets */; };
 		280824621D908ADF00065E12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280824601D908ADF00065E12 /* LaunchScreen.storyboard */; };
+		2808246B1D90996500065E12 /* PictureDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2808246A1D90996500065E12 /* PictureDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		2808245E1D908ADF00065E12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		280824611D908ADF00065E12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		280824631D908ADF00065E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		280824691D90996500065E12 /* PictureDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureDetailsViewController.h; sourceTree = "<group>"; };
+		2808246A1D90996500065E12 /* PictureDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				280824581D908ADF00065E12 /* ViewController.h */,
 				280824591D908ADF00065E12 /* ViewController.m */,
 				2808245B1D908ADF00065E12 /* Main.storyboard */,
+				280824691D90996500065E12 /* PictureDetailsViewController.h */,
+				2808246A1D90996500065E12 /* PictureDetailsViewController.m */,
 				2808245E1D908ADF00065E12 /* Assets.xcassets */,
 				280824601D908ADF00065E12 /* LaunchScreen.storyboard */,
 				280824631D908ADF00065E12 /* Info.plist */,
@@ -152,6 +157,7 @@
 			files = (
 				2808245A1D908ADF00065E12 /* ViewController.m in Sources */,
 				280824571D908ADF00065E12 /* AppDelegate.m in Sources */,
+				2808246B1D90996500065E12 /* PictureDetailsViewController.m in Sources */,
 				280824541D908ADF00065E12 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
