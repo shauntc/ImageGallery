@@ -12,6 +12,7 @@
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) NSArray <UIImageView*>* imageViews;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControlDots;
 
 
 @end
@@ -47,10 +48,15 @@
     
     self.imageViews = [self setUpImageViews:pictures];
     
+    self.scrollView.showsHorizontalScrollIndicator = YES;
+    
+    [self.view bringSubviewToFront:self.pageControlDots];
+    
     [self.scrollView setNeedsLayout];
 
 
 }
+
 
 
 -(NSArray*)setUpImageViews:(NSArray <UIImage *>*)pictures
@@ -123,11 +129,21 @@
 }
 
 
+- (IBAction)tapOnDots:(UITapGestureRecognizer *)sender {
+    if(self.scrollView.contentSize.width > self.scrollView.contentOffset.x + self.scrollView.frame.size.width)
+    {
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = offset.x + self.scrollView.frame.size.width;
+        
+        
+        
+        [self.scrollView setContentOffset:offset animated:YES];
+    }
+}
 
 
 
 - (IBAction)tapDetected:(UITapGestureRecognizer *)sender {
-    
     for(UIImageView* imageView in self.imageViews)
     {
         if(CGRectContainsPoint(imageView.frame, [sender locationInView:self.scrollView]))
@@ -137,12 +153,23 @@
         }
     }
     
+    
+}
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    
+    self.pageControlDots.currentPage = (int) self.scrollView.contentOffset.x / self.view.frame.size.width;
+    
 }
 
 
 -(void)presentDetailsControllerForImage:(UIImage *)image
 {
     PictureDetailsViewController *new = [[PictureDetailsViewController alloc] initWithPicture:image];
+    new.title = @"Zooooom";
     
     [self.navigationController pushViewController:new animated:YES];
     

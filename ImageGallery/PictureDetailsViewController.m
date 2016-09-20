@@ -30,9 +30,9 @@
     
     self.view.backgroundColor = [UIColor yellowColor];
     
-//    self.scrollView = [self setUpScrollView];
-//    
-//    self.imageView = [self setUpImageViewToView:self.scrollView];
+    self.scrollView = [self setUpScrollView];
+    
+    self.imageView = [self setUpImageViewToView:self.scrollView];
     
     
     self.scrollView.contentSize = self.imageView.frame.size;
@@ -52,8 +52,7 @@
     
     
     [self.view setNeedsLayout];
-    
-    
+    [self.scrollView setNeedsLayout];
 }
 
 
@@ -65,41 +64,41 @@
     imageView.backgroundColor = [UIColor blueColor];
     
     NSLayoutConstraint *yLoc = [NSLayoutConstraint constraintWithItem:imageView
-                                                            attribute:NSLayoutAttributeTop
+                                                            attribute:NSLayoutAttributeCenterY
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:view
-                                                            attribute:NSLayoutAttributeTop
+                                                            attribute:NSLayoutAttributeCenterY
                                                            multiplier:1
                                                              constant:0];
     [view addConstraint:yLoc];
     
     NSLayoutConstraint *xLoc = [NSLayoutConstraint constraintWithItem:imageView
-                                                            attribute:NSLayoutAttributeLeft
+                                                            attribute:NSLayoutAttributeCenterX
                                                             relatedBy:NSLayoutRelationEqual
                                                                toItem:view
-                                                            attribute:NSLayoutAttributeLeft
+                                                            attribute:NSLayoutAttributeCenterX
                                                            multiplier:1
                                                              constant:0];
     [view addConstraint:xLoc];
     
     
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView
-                                                             attribute:NSLayoutAttributeWidth
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:view
-                                                             attribute:NSLayoutAttributeWidth
-                                                            multiplier:1
-                                                              constant:0];
-    [view addConstraint:width];
-    
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView
-                                                              attribute:NSLayoutAttributeHeight
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:view
-                                                              attribute:NSLayoutAttributeHeight
-                                                             multiplier:1
-                                                               constant:0];
-    [view addConstraint:height];
+//    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:imageView
+//                                                             attribute:NSLayoutAttributeWidth
+//                                                             relatedBy:NSLayoutRelationEqual
+//                                                                toItem:view
+//                                                             attribute:NSLayoutAttributeWidth
+//                                                            multiplier:1
+//                                                              constant:0];
+//    [view addConstraint:width];
+//    
+//    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:imageView
+//                                                              attribute:NSLayoutAttributeHeight
+//                                                              relatedBy:NSLayoutRelationEqual
+//                                                                 toItem:view
+//                                                              attribute:NSLayoutAttributeHeight
+//                                                             multiplier:1
+//                                                               constant:0];
+//    [view addConstraint:height];
     
     return imageView;
 }
@@ -110,6 +109,7 @@
 }
 
 
+
 -(UIScrollView*)setUpScrollView
 {
     UIScrollView *new = [[UIScrollView alloc] initWithFrame:self.view.frame];
@@ -117,7 +117,7 @@
     [self.view addSubview:new];
     
     new.delegate = self;
-    new.backgroundColor = [UIColor magentaColor];
+    new.backgroundColor = [UIColor blackColor];
     
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:new
                                                              attribute:NSLayoutAttributeWidth
@@ -165,8 +165,8 @@
     self = [super init];
     if (self) {
         _picture = picture;
-        _scrollView = [self setUpScrollView];
-        _imageView = [self setUpImageViewToView:_scrollView];
+//        _scrollView = [self setUpScrollView];
+//        _imageView = [self setUpImageViewToView:_scrollView];
     }
     return self;
 }

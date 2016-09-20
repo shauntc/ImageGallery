@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-1410" y="54"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Gallery-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -35,24 +35,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bm9-vo-WGj">
-                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="OKi-ZI-FNf"/>
                                     <outletCollection property="gestureRecognizers" destination="7SQ-e1-qD1" appends="YES" id="AML-wB-Hb4"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kIT-1b-hct">
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c26-yA-MdD"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8BW-BG-EqA" appends="YES" id="aa7-Xf-dvk"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bm9-vo-WGj" secondAttribute="bottom" id="68L-7O-LsD"/>
+                            <constraint firstItem="kIT-1b-hct" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="GHw-NR-PZo"/>
                             <constraint firstItem="bm9-vo-WGj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cbv-GB-Tei"/>
                             <constraint firstItem="bm9-vo-WGj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gud-SM-OCV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kIT-1b-hct" secondAttribute="bottom" constant="20" id="iP2-fh-ZQp"/>
                             <constraint firstItem="bm9-vo-WGj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mOX-WS-UNz"/>
+                            <constraint firstAttribute="trailing" secondItem="kIT-1b-hct" secondAttribute="trailing" constant="8" id="saP-kd-S42"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sah-V2-3c0"/>
+                    <navigationItem key="navigationItem" title="Image Gallery" id="sah-V2-3c0"/>
                     <connections>
+                        <outlet property="pageControlDots" destination="kIT-1b-hct" id="IiR-AE-GhC"/>
                         <outlet property="scrollView" destination="bm9-vo-WGj" id="3Lc-6X-Pgp"/>
                     </connections>
                 </viewController>
@@ -62,8 +75,13 @@
                         <action selector="tapDetected:" destination="BYZ-38-t0r" id="kW5-pS-En9"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="8BW-BG-EqA">
+                    <connections>
+                        <action selector="tapOnDots:" destination="BYZ-38-t0r" id="Djv-V0-ghx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-663" y="54"/>
+            <point key="canvasLocation" x="-663.20000000000005" y="53.523238380809602"/>
         </scene>
     </scenes>
 </document>
