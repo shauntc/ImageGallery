@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "PictureDetailsViewController.h"
 
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic) NSArray <UIImageView*>* imageViews;
+
 
 @end
 
@@ -31,6 +34,7 @@
 {
     [super viewDidAppear:animated];
     
+    //Static array of images to produce from
     NSArray *pictures = @[
                           [UIImage imageNamed:@"Lighthouse-night"],
                           [UIImage imageNamed:@"Lighthouse-in-Field"],
@@ -38,7 +42,22 @@
                           ];
     
     
+    
+    self.scrollView.pagingEnabled = YES;
+    
+    self.imageViews = [self setUpImageViews:pictures];
+    
+    [self.scrollView setNeedsLayout];
+
+
+}
+
+
+-(NSArray*)setUpImageViews:(NSArray <UIImage *>*)pictures
+{
+    
     float space = 0;
+    NSArray *imageViews = @[];
     
     for(UIImage *image in pictures)
     {
@@ -87,13 +106,45 @@
         [self.scrollView addConstraint:xLoc];
         
         space += self.scrollView.frame.size.width;
+        
+        
+        imageViews = [imageViews arrayByAddingObject:imageView];
+        
+        
     }
     
     
     
-    self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(space, self.scrollView.frame.size.height);
     
+    return imageViews;
+    
+    
+}
+
+
+
+
+
+- (IBAction)tapDetected:(UITapGestureRecognizer *)sender {
+    
+    for(UIImageView* imageView in self.imageViews)
+    {
+        if(CGRectContainsPoint(imageView.frame, [sender locationInView:self.scrollView]))
+        {
+            [self presentDetailsControllerForImage:imageView.image];
+            
+        }
+    }
+    
+}
+
+
+-(void)presentDetailsControllerForImage:(UIImage *)image
+{
+    PictureDetailsViewController *new = [[PictureDetailsViewController alloc] initWithPicture:image];
+    
+    [self.navigationController pushViewController:new animated:YES];
     
 }
 

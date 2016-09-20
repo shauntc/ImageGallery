@@ -10,4 +10,6 @@
 
 @interface PictureDetailsViewController : UIViewController
 
+- (instancetype)initWithPicture:(UIImage*)picture;
+
 @end
